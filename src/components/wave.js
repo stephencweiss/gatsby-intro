@@ -14,8 +14,9 @@ const Wave = () => {
         font-size: 1.25rem;
       `}
       onClick={() => setWaves(waves + 1)}
+      onKeyDown={()=> setWaves(waves + 1)}
     >
-      {label}
+      {label} 
     </button>
   );
 };
