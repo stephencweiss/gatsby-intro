@@ -23,7 +23,7 @@ const usePosts = () => {
     title: posts.frontmatter.title,
     author: posts.frontmatter.author,
     slug: posts.frontmatter.slug,
-    excerpt: posts.exceprt,
+    excerpt: posts.excerpt,
   }));
 };
 
