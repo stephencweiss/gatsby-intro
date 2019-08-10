@@ -42,8 +42,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   })
 
   blogNodes.forEach(post => {
-    const path = post.childMdx.frontmatter.slug;
     if (post.childMdx === null) return;
+    const path = post.childMdx.frontmatter.slug;
     actions.createPage({
       path,
       component: require.resolve('./src/templates/post.js'),
