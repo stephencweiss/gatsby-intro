@@ -27,9 +27,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   const postNode = result.data.posts.nodes;
-  const videoNodes = result.data.posts.nodes;
+  const blogNodes = result.data.blog.nodes;
 
   postNode.forEach(post => {
+    if (post.childMdx === null) return;
     const path = post.childMdx.frontmatter.slug;
     actions.createPage({
       path,
@@ -40,11 +41,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     });
   })
 
-  videoNodes.forEach(post => {
+  blogNodes.forEach(post => {
     const path = post.childMdx.frontmatter.slug;
+    if (post.childMdx === null) return;
     actions.createPage({
       path,
-      component: require.resolve('./src/templates/video.js'),
+      component: require.resolve('./src/templates/post.js'),
       context: {
         slug: post.childMdx.frontmatter.slug,
       },
