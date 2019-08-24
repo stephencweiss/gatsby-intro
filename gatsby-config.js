@@ -13,6 +13,7 @@ module.exports = {
       resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.mdx', '.md'],
+        plugins: [`gatsby-remark-images`],
         defaultLayouts: {
           default: require.resolve('./src/components/layout.js'),
         },
@@ -20,10 +21,12 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              markdownCaptions: true,
-              linkImagesToOriginal: false,
-              showCaptions: ['title', 'alt'],
+              // markdownCaptions: true,
+              // linkImagesToOriginal: false,
+              // showCaptions: ['title', 'alt'],
               withWebp: true,
+              // maxWidth: 960,
+              // quality: 80,
               tracedSVG: {
                 color: `lightgray`,
                 optTolerance: 0.4,
