@@ -11,23 +11,15 @@ export const query = graphql`
       frontmatter {
         title
         author
-        image {
-          childImageSharp {
-            fluid {
-              srcSet
-            }
-          }
-        }
       }
       body
     }
   }
 `;
 
-const PostTemplate = ({ data: { mdx: post }, pageContext }) => {
+const PostTemplate = (query) => {
+  const { data: { mdx: post }, pageContext } = query;
   const { frontmatter, body } = post;
-  const { image } = frontmatter;
-  console.log({ image });
   return (
     <Layout>
       <h1>{frontmatter.title}</h1>
@@ -39,7 +31,6 @@ const PostTemplate = ({ data: { mdx: post }, pageContext }) => {
         {`posted by ${frontmatter.author}`}
       </p>
       <MDXRenderer>{body}</MDXRenderer>
-      {/* <pre>{image}</pre> */}
       <ReadLink to="/">&larr; back to home</ReadLink>
     </Layout>
   );

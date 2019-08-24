@@ -9,6 +9,17 @@ const usePosts = () => {
             title
             slug
             author
+            cover {
+              sharp: childImageSharp {
+                fluid (
+                  maxWidth: 100
+                  maxHeight: 100
+                  duotone: { shadow: "#663399", highlight: "#ddbbff"}
+                ) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
           }
           excerpt
           wordCount {
@@ -24,6 +35,7 @@ const usePosts = () => {
     author: posts.frontmatter.author,
     slug: posts.frontmatter.slug,
     excerpt: posts.excerpt,
+    cover: posts.frontmatter.cover
   }));
 };
 
