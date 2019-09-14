@@ -1,3 +1,15 @@
+const path = require("path");
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        "~components": path.resolve(__dirname, "src/components")
+      }
+    }
+  });
+};
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   // In node (which this is), graphql is a function that takes a string.
   const result = await graphql(`

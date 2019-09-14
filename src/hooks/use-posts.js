@@ -16,7 +16,7 @@ const usePosts = () => {
                   maxHeight: 100
                   duotone: { shadow: "#663399", highlight: "#ddbbff"}
                 ) {
-                  ...GatsbyImageSharpFluid_withWebp
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
             }

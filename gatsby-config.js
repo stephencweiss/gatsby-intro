@@ -21,12 +21,8 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              // markdownCaptions: true,
-              // linkImagesToOriginal: false,
-              // showCaptions: ['title', 'alt'],
+              linkImagesToOriginal: false,
               withWebp: true,
-              // maxWidth: 960,
-              // quality: 80,
               tracedSVG: {
                 color: `lightgray`,
                 optTolerance: 0.4,
@@ -62,5 +58,20 @@ module.exports = {
         path: 'content/images',
       },
     },
+    {
+      resolve: 'gatsby-source-instagram',
+      options: {
+        username: 'Swagnerishere'
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-webpack-bundle-analyzer',
+      options: {
+        production: true,
+        disable: !process.env.ANALYZE_BUNDLE_SIZE,
+        generateStatsFile: true,
+        analyzerMode: 'static',
+      }
+    }
   ],
 };
